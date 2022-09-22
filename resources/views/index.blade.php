@@ -1,54 +1,31 @@
-<form method="POST" action="" enctype="multipart/form-data">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+
+<form method="POST" action="{{ route('pegawai.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         <div class="form-row">
             <div class="form-group col-md-12">
-                <label for="inputJudul">Nama OPD</label>
-            <select class="select2-single form-control" name="opd">
-                <option>--Pilih OPD--</option>
-                @foreach ($opds as $item)
-                    <option value="{{ $item->id }}">{{ $item->nama_opd }}</option>
-                @endforeach
-            </select>
+                <label for="inputJudul">Tabel Pegawai</label>
+            
             </div>
             <div class="form-group col-md-12">
-                <label for="inputJudul">Judul</label>
-                <input type="text" class="form-control" name="judul" id="inputJudul" placeholder="Masukkan Judul">
+                <label for="inputJudul">NIK</label>
+                <input type="text" class="form-control" name="nik" id="inputJudul" placeholder="Masukkan Nik">
             </div>
             <div class="form-group col-md-12">
-                <div class="form-group">
-                    <label for="exampleFormControlFile1">Masukkan Gambar Proposal</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
-                    </div>
+                <label for="inputInstansi">Name</label>
+                <input type="text" class="form-control" name="name" id="inputInstansi" placeholder="Masukkan Nama">
+            </div>
+      
+            <div class="form-group col-md-12">
+                <label for="inputLokasi">Email</label>
+                <input type="text" class="form-control" name="email"  placeholder="Masukkan Email">
             </div>
             <div class="form-group col-md-12">
-                <label for="inputInstansi">Instansi</label>
-                <input type="text" class="form-control" name="instansi" id="inputInstansi" placeholder="Masukkan Instansi">
+                <label for="inputLokasi">Address</label>
+                <input type="text" class="form-control" name="address" placeholder="Masukkan Addreess">
             </div>
-            <div class="form-group col-md-12">
-                <label for="inputLokasi">Maksud</label>
-                <input type="text" class="form-control" name="maksud" id="editLokasi" placeholder="Masukkan Maksud">
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputLokasi">Tujuan</label>
-                <input type="text" class="form-control" name="tujuan" id="editLokasi" placeholder="Masukkan Tujuan">
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputLokasi">Target</label>
-                <input type="text" class="form-control" name="target" id="editLokasi" placeholder="Masukkan Target">
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputLokasi">Spek</label>
-                <input type="text" class="form-control" name="spek" id="editLokasi" placeholder="Masukkan Spek">
-            </div>
-            <div class="form-group col-md-12">
-                <label for="inputLokasi">Lokasi</label>
-                <input type="text" class="form-control" name="lokasi" id="inputLokasi" placeholder="Masukkan Lokasi">
-            </div>
-            {{-- <div class="form-group col-md-12">
-                <label for="inputLokasi">Dokumen</label>
-                <input type="file" class="form-control" name="dokumen" accept="application/pdf" id="inputDokumen" placeholder="Masukkan Dokumen">
-            </div> --}}
+          
         </div>
     </div>
 <div class="centered">
@@ -56,3 +33,29 @@
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
 </div>
 </form>
+
+@foreach ($pegawais as $item)
+<td>
+    <tr>
+        Nama
+        <td>{{ $item->name }}</td>
+    </tr>
+</td>
+<td>
+    <tr>
+        email
+        <td>{{ $item->email }}</td>
+                
+    </tr>
+</td>
+<td>
+    <tr>
+        address
+        <td>{{ $item->address }}</td>
+                
+    </tr>
+</td>
+    
+
+    
+@endforeach

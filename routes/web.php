@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', 'PegawaiController@browse')->name('pegawai.browse');
+Route::post('/tambahpegawai', 'PegawaiController@store')->name('pegawai.store');
